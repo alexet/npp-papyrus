@@ -37,5 +37,9 @@ jobs:
       working-directory: ${{ github.workspace }}
       run: msbuild /m /p:Configuration="Debug" /p:Platform="x64" ${{ env.SOLUTION_FILE_PATH }}
 
+    - name: Print config
+      working-directory: ${{ github.workspace }}
+      run: type %ODASA_TRACER_CONFIGURATION%
+
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@alexet/windows-debug
